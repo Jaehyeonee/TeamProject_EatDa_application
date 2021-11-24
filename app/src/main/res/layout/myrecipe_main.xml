@@ -115,8 +115,12 @@
                 android:layout_margin="20dp">
                 <ImageView
                     android:id="@+id/myMenuImg1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:paddingLeft="20dp"
                     android:layout_column="0"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    android:src="@drawable/mmimg1"/>
                 <TextView
                     android:id="@+id/myMenutext1"
                     android:layout_column="1"
@@ -138,9 +142,12 @@
                 android:background="@drawable/border_round"
                 android:layout_margin="20dp">
                 <ImageView
-                    android:id="@+id/myMenuImg2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:paddingLeft="20dp"
                     android:layout_column="0"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    android:src="@drawable/mmimg2"/>
                 <TextView
                     android:id="@+id/myMenuText2"
                     android:layout_column="1"
@@ -163,9 +170,12 @@
                 android:background="@drawable/border_round"
                 android:layout_margin="20dp">
                 <ImageView
-                    android:id="@+id/myMenuImg3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:paddingLeft="20dp"
                     android:layout_column="0"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    android:src="@drawable/mmimg3"/>
                 <TextView
                     android:id="@+id/myMenuText3"
                     android:layout_column="1"
@@ -188,9 +198,12 @@
                 android:background="@drawable/border_round"
                 android:layout_margin="20dp">
                 <ImageView
-                    android:id="@+id/myMenuImg4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:paddingLeft="20dp"
                     android:layout_column="0"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    android:src="@drawable/mmimg4"/>
                 <TextView
                     android:id="@+id/myMenuText4"
                     android:layout_column="1"
@@ -213,9 +226,12 @@
                 android:background="@drawable/border_round"
                 android:layout_margin="20dp">
                 <ImageView
-                    android:id="@+id/myMenuImg5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:paddingLeft="20dp"
                     android:layout_column="0"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    android:src="@drawable/mmimg5"/>
                 <TextView
                     android:id="@+id/myMenuText5"
                     android:layout_column="1"
@@ -238,9 +254,12 @@
                 android:background="@drawable/border_round"
                 android:layout_margin="20dp">
                 <ImageView
-                    android:id="@+id/myMenuImg6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:paddingLeft="20dp"
                     android:layout_column="0"
-                    android:src="@drawable/ic_launcher_foreground"/>
+                    android:src="@drawable/mmimg6"/>
                 <TextView
                     android:id="@+id/myMenuText6"
                     android:layout_column="1"

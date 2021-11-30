@@ -45,7 +45,7 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter_ViewHolder
 
         final int color;
         if (a_viewHolder.getAdapterPosition() == mCheckedPosition) {
-            color = ContextCompat.getColor(a_viewHolder.itemView.getContext(), R.color.purple_200);
+            color = ContextCompat.getColor(a_viewHolder.itemView.getContext(), android.R.color.transparent);
         } else {
             color = ContextCompat.getColor(a_viewHolder.itemView.getContext(), android.R.color.transparent);
 

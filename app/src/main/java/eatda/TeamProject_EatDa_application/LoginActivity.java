@@ -8,9 +8,10 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+//TODO: 로그인 입력안하면 다음으로 못 넘어가게
+
 public class LoginActivity extends AppCompatActivity {
     ImageButton btn_login;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

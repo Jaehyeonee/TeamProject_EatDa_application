@@ -20,6 +20,7 @@
         </activity>
         <activity android:name="eatda.TeamProject_EatDa_application.LoginActivity"/>
         <activity android:name="eatda.TeamProject_EatDa_application.MyRecipeMain"/>
+        <activity android:name=".MyMenu_MainRecycleView"/>
     </application>
 
 </manifest>

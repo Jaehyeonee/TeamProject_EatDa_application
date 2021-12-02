@@ -34,9 +34,15 @@
         <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/add_menu.xml" value="0.2" />
         <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/login_activity.xml" value="0.264" />
         <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/menuitem_list.xml" value="0.1" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/myrecipe_main.xml" value="0.16" />
         <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/recycle_activity.xml" value="0.1" />
         <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/select_cat.xml" value="0.176" />
+=======
+        <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/myrecipe_main.xml" value="0.2" />
+        <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/recycle_activity.xml" value="0.2" />
+        <entry key="..\:/Users/JaeHyeon/Desktop/MP_teamproject/TeamProject_EatDa_application/app/src/main/res/layout/select_cat.xml" value="0.2" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>

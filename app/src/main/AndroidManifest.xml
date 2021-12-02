@@ -26,8 +26,9 @@
         <activity android:name=".Category3"/>
         <activity android:name=".Category2"/>
         <activity android:name=".Category1"/>
-
         <activity android:name=".AddMenuActivity"/>
+
+
     </application>
 
     //<uses-permission android:name="android.permission.CAMERA" />

@@ -14,14 +14,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 public class MyMenu_MainRecycleView extends AppCompatActivity {
 
     ImageButton hbtn_l;
     ImageButton hbtn_r;
+
     // List item
     private ArrayList<Dictionary_MyMenu> mItemList;
-
     // List view
     private MyMenuAdapter customAdapter_addMyMenu;
 
@@ -43,9 +44,6 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
                 startActivity(intent2);
             }
         });
-
-
-
 
         // List 설정
         bindList();
@@ -70,15 +68,26 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Dictionary_MyMenu dict = mItemList.get(position);
+
+                Intent intent = new Intent(getBaseContext(), MenuResult_Activity.class);
+                intent.putExtra("imageResId", dict.getImageResId());
+                intent.putExtra("strTitle", dict.getTitle());
+
+                startActivity(intent);
+
+            }
+
+        }));
+
+
         customAdapter_addMyMenu = new MyMenuAdapter(this,mItemList);
         recyclerView.setAdapter(customAdapter_addMyMenu);
-
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-
-
         // List item click event 처리
 
     }
@@ -98,10 +107,7 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
                 @Override
                 public boolean onSingleTapUp(MotionEvent e) {
                     return true;
-                    //return super.onSingleTapUp(e);
                 }
-
-
             });
         }
 

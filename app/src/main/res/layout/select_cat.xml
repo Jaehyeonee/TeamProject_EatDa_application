@@ -2,14 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:id="@+id/selectCat"
-    tools:context=".MainActivity">
-
+    android:id="@+id/selectCat">
 
     #로고 글자
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,6 +65,7 @@
         android:textStyle="italic"
         android:textColor="#AEAEAE"/>
 
+<<<<<<< HEAD
 
     <ImageButton
         android:id="@+id/imageButton1"
@@ -80,34 +78,57 @@
         app:srcCompat="@drawable/ct1" />
 
     <TableLayout
+=======
+    <LinearLayout
+>>>>>>> main
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         android:gravity="center"
-        android:paddingBottom="80dp"
-        android:layout_marginBottom="23dp">
+        android:layout_gravity="center"
+        android:layout_weight="1">
 
-        <TableRow
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:paddingTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:paddingBottom="20dp"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ct1" />
+
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="23dp">
 
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="@color/white"
-                app:srcCompat="@drawable/ct2" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="@color/white"
+                    app:srcCompat="@drawable/ct2" />
 
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginLeft="2dp"
-                android:background="@color/white"
-                app:srcCompat="@drawable/ct3" />
-        </TableRow>
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="2dp"
+                    android:background="@color/white"
+                    app:srcCompat="@drawable/ct3" />
+            </TableRow>
 
-    </TableLayout>
+        </TableLayout>
+
+    </LinearLayout>
+
+
 
 
     <LinearLayout

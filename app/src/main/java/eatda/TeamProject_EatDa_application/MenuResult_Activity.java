@@ -21,27 +21,24 @@ public class MenuResult_Activity extends AppCompatActivity {
         setContentView(R.layout.menu_result);
 
         menuImageview=findViewById(R.id.addedMyImageView);  //메뉴 이미지 보여주기
+
         String strTitle ="";
-
-
+        Integer imageResId;
 
         Bundle extras = getIntent().getExtras();
 
         strTitle = extras.getString("strTitle");
+        imageResId = extras.getInt("imageResId");
 
         TextView textView = (TextView)findViewById(R.id.menu_titleTextview) ;
+        ImageView imageView =(ImageView)findViewById(R.id.addedMyImageView) ;
         String strMenuTitle = strTitle;
+        Integer integerImgResId = imageResId;
         textView.setText(strMenuTitle);
+        imageView.setImageResource(integerImgResId);
 
 
     }
-    //public void setImageResId(int a_imageResId){
-      //  imageResId = a_imageResId;
-    //}
 
-<<<<<<< Updated upstream
-    //}
-=======
->>>>>>> Stashed changes
 }
 

@@ -40,11 +40,8 @@ public class SelectCategory extends AppCompatActivity {
             }
         });
 
-<<<<<<< Updated upstream
-        ImageButton hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
-=======
-        //ImageButton hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
->>>>>>> Stashed changes
+
+
         ImageButton hbtn_r = (ImageButton) findViewById(R.id.hbtn2);
 
 
@@ -58,12 +55,5 @@ public class SelectCategory extends AppCompatActivity {
 
     }
 
-
-
-<<<<<<< Updated upstream
-
-}
-=======
->>>>>>> Stashed changes
 
 }

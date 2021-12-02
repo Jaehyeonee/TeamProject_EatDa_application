@@ -69,13 +69,25 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    # 이미지 갤러리
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-        <androidx.recyclerview.widget.RecyclerView
+        <GridView
+            android:id="@+id/gv3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:columnWidth="100dp"
+            android:stretchMode="columnWidth"
+            android:paddingRight="10dp"
+            android:verticalSpacing="2dp"
+            android:horizontalSpacing="2dp"
+            android:numColumns="3"
+            android:gravity="center"
+            />
 
     </ScrollView>
 

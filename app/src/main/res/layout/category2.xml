@@ -70,27 +70,28 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     # 이미지 갤러리
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <GridView
             android:id="@+id/gv2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
+            android:layout_height="match_parent"
             android:columnWidth="100dp"
-            android:stretchMode="columnWidth"
-            android:paddingRight="10dp"
-            android:verticalSpacing="2dp"
+            android:gravity="center"
             android:horizontalSpacing="2dp"
             android:numColumns="3"
-            android:gravity="center"
-            />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="2dp" />
+
 
     </ScrollView>
-
-
 
     <LinearLayout
         android:layout_gravity="bottom"

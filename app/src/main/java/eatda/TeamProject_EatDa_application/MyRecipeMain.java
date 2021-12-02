@@ -26,6 +26,26 @@ public class MyRecipeMain extends AppCompatActivity {
                 Intent addMenuIntent = new Intent(MyRecipeMain.this, AddMenuActivity.class );
             }
         });
+
+        //홈버튼
+        ImageButton hbtn_l = (ImageButton) findViewById(R.id.ripple_left);
+        ImageButton hbtn_r = (ImageButton) findViewById(R.id.ripple_right);
+
+        hbtn_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyRecipeMain.this, SelectCategory.class);
+                startActivity(intent);
+            }
+        });
+
+        hbtn_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyRecipeMain.this, MyRecipeMain.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

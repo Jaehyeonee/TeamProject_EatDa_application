@@ -21,9 +21,11 @@
         <activity android:name="eatda.TeamProject_EatDa_application.LoginActivity"/>
         <activity android:name="eatda.TeamProject_EatDa_application.MyRecipeMain"/>
         <activity android:name=".MyMenu_MainRecycleView"/>
+
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera2" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

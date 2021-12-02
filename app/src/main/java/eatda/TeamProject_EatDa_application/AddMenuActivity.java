@@ -21,12 +21,12 @@ public class AddMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_menu);
 
-        tedPermission();
+        //tedPermission();
 
         ImageView addImage = (ImageView) this.findViewById(R.id.addImageView);
         ImageButton addButton = (ImageButton) this.findViewById(R.id.addButton);
 
-        addButton.setOnClickListener(this);
+        //addButton.setOnClickListener(this);
     }
 
 

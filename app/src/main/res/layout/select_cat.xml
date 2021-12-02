@@ -66,15 +66,39 @@ qj
         android:textStyle="italic"
         android:textColor="#AEAEAE"/>
 
+<<<<<<< HEAD
     <LinearLayout
+=======
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:paddingTop="20dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:paddingBottom="20dp"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ct1" />
+
+    <TableLayout
+>>>>>>> main
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+<<<<<<< HEAD
         android:paddingBottom="40dp"
         android:layout_marginBottom="23dp"
         android:orientation="vertical">
 
+=======
+        android:paddingBottom="80dp"
+        android:layout_marginBottom="23dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+>>>>>>> main
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,14 +106,21 @@ qj
             android:layout_weight="1"
             android:gravity="center">
             <ImageButton
+<<<<<<< HEAD
                 android:id="@+id/imageButton1"
                 android:paddingTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+=======
+                android:id="@+id/imageButton2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+>>>>>>> main
                 android:background="@color/white"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/ct1" />
 
+<<<<<<< HEAD
         </LinearLayout>
 
 
@@ -125,6 +156,16 @@ qj
 
 
     </LinearLayout>
+=======
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="2dp"
+                android:background="@color/white"
+                app:srcCompat="@drawable/ct3" />
+        </TableRow>
+>>>>>>> main
 
 
     <LinearLayout

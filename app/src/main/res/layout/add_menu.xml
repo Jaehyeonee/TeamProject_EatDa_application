@@ -80,12 +80,23 @@
                 android:inputType="textPersonName"
                 android:textColorHint="#AEAEAE" />
 
-
+            #이미지 추가
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/addImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/addimages" />
+                app:srcCompat="@drawable/addimages"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+
+
+            <ImageButton
+                android:id="@+id/addButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/addbtn1" />
+
+            #checkbox
 
             <TableLayout
                 android:layout_width="wrap_content"
@@ -124,6 +135,7 @@
 
             </TableLayout>
 
+            #요리재료작성
             <EditText
                 android:id="@+id/editText1"
                 android:layout_width="match_parent"
@@ -136,7 +148,7 @@
                 android:background="@drawable/border_round"
                 android:inputType="textPersonName"
                 android:text="    * 재료 정보" />
-
+            #요리순서작성
             <EditText
                 android:id="@+id/editText2"
                 android:layout_width="match_parent"

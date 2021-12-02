@@ -21,6 +21,7 @@
         <activity android:name="eatda.TeamProject_EatDa_application.LoginActivity"/>
         <activity android:name="eatda.TeamProject_EatDa_application.MyRecipeMain"/>
         <activity android:name=".MyMenu_MainRecycleView"/>
+<<<<<<< Updated upstream
         <activity android:name=".MenuResult_Activity"/>
         <activity android:name=".SelectCategory"/>
         <activity android:name=".Category3"/>
@@ -28,6 +29,14 @@
         <activity android:name=".Category1"/>
 
 
+=======
+        <activity android:name=".Category1"/>
+        <activity android:name=".Category2"/>
+        <activity android:name=".Category3"/>
+        <activity android:name=".SelectCategory"/>
+        <activity android:name=".AddMenuActivity"/>
+        <activity android:name=".MenuResult_Activity"/>
+>>>>>>> Stashed changes
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />

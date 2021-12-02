@@ -39,5 +39,9 @@ public class MenuResult_Activity extends AppCompatActivity {
       //  imageResId = a_imageResId;
     //}
 
+<<<<<<< Updated upstream
     //}
+=======
+>>>>>>> Stashed changes
 }
+

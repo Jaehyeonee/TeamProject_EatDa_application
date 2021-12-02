@@ -70,15 +70,18 @@
 
     <ImageButton
         android:id="@+id/imageButton1"
+        android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_gravity="center"
+        android:gravity="center"
         app:srcCompat="@drawable/ct1" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="40dp"
         android:layout_marginBottom="93dp">
 
         <TableRow
@@ -105,6 +108,7 @@
     </TableLayout>
 
     <LinearLayout
+        android:paddingTop="10dp"
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

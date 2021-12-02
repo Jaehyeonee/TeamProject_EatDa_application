@@ -72,22 +72,12 @@
 
     # 이미지 갤러리
 
-
     <GridView
         android:id="@+id/gv1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnWidth="90dp"
+        android:layout_height="480dp"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
-        tools:context=".MainActivity">
+        android:numColumns="3">
 
     </GridView>
 

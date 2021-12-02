@@ -23,8 +23,8 @@ public class AddMenuActivity extends AppCompatActivity {
 
         //tedPermission();
 
-        ImageView addImage = (ImageView) this.findViewById(R.id.addImageView);
-        ImageButton addButton = (ImageButton) this.findViewById(R.id.addButton);
+        //ImageView addImage = (ImageView) this.findViewById(R.id.addImageView);
+        //ImageButton addButton = (ImageButton) this.findViewById(R.id.addButton);
 
         //addButton.setOnClickListener(this);
     }

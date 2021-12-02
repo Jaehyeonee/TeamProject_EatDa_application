@@ -1,5 +1,6 @@
 package eatda.TeamProject_EatDa_application;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -62,20 +63,34 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
         // List item click event 처리
 
     }
-    public interface ClickListner{
+    public interface ClickListener{
         void onClick(View view, int position);
     }
 
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener{
 
         private GestureDetector gestureDetector;
-        private ClickListner clickListner;
+        private MyMenu_MainRecycleView.ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final MyMenu_MainRecycleView.ClickListener clickListener2)
+        {
+            this.clickListener = clickListener2;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener(){
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                    //return super.onSingleTapUp(e);
+                }
+            });
+        }
+
+
 
         @Override
         public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if(child!=null && clickListner!=null&&gestureDetector.onTouchEvent(e)){
-                clickListner.onClick(child, rv.getChildAdapterPosition(child));
+            if(child!=null && clickListener!=null&&gestureDetector.onTouchEvent(e)){
+                clickListener.onClick(child, rv.getChildAdapterPosition(child));
             }
             return false;
         }

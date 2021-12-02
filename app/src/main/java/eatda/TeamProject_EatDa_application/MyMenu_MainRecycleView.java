@@ -1,10 +1,12 @@
 package eatda.TeamProject_EatDa_application;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 
 public class MyMenu_MainRecycleView extends AppCompatActivity {
 
+    ImageButton hbtn_l;
+    ImageButton hbtn_r;
     // List item
     private ArrayList<Dictionary_MyMenu> mItemList;
 
@@ -27,6 +31,21 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycle_activity);
+
+        //홈버튼
+        hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
+        hbtn_r = (ImageButton) findViewById(R.id.hbtn2);
+
+        hbtn_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(MyMenu_MainRecycleView.this, SelectCategory.class);
+                startActivity(intent2);
+            }
+        });
+
+
+
 
         // List 설정
         bindList();
@@ -81,6 +100,8 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
                     return true;
                     //return super.onSingleTapUp(e);
                 }
+
+
             });
         }
 

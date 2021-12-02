@@ -28,8 +28,8 @@ public class MyRecipeMain extends AppCompatActivity {
         });
 
         //홈버튼
-        ImageButton hbtn_l = (ImageButton) findViewById(R.id.ripple_left);
-        ImageButton hbtn_r = (ImageButton) findViewById(R.id.ripple_right);
+        ImageButton hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
+        ImageButton hbtn_r = (ImageButton) findViewById(R.id.hbtn2);
 
         hbtn_l.setOnClickListener(new View.OnClickListener() {
             @Override

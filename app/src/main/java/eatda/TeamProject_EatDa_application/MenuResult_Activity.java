@@ -30,15 +30,14 @@ public class MenuResult_Activity extends AppCompatActivity {
         strTitle = extras.getString("strTitle");
 
         TextView textView = (TextView)findViewById(R.id.menu_titleTextview) ;
-
         String strMenuTitle = strTitle;
         textView.setText(strMenuTitle);
 
 
     }
-    public void setImageResId(int a_imageResId){
-        imageResId = a_imageResId;
-    }
+    //public void setImageResId(int a_imageResId){
+      //  imageResId = a_imageResId;
+    //}
 
-    }
+    //}
 }

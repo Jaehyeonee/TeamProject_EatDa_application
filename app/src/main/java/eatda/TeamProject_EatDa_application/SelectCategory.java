@@ -40,21 +40,14 @@ public class SelectCategory extends AppCompatActivity {
             }
         });
 
-        ImageButton hbtn_l = (ImageButton) findViewById(R.id.ripple_left);
-        ImageButton hbtn_r = (ImageButton) findViewById(R.id.ripple_right);
+        ImageButton hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
+        ImageButton hbtn_r = (ImageButton) findViewById(R.id.hbtn2);
 
-        hbtn_l.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SelectCategory.this, SelectCategory.class);
-                startActivity(intent);
-            }
-        });
 
         hbtn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelectCategory.this, MyRecipeMain.class);
+                Intent intent = new Intent(SelectCategory.this, MyMenu_MainRecycleView.class);
                 startActivity(intent);
             }
         });
@@ -62,5 +55,6 @@ public class SelectCategory extends AppCompatActivity {
         }
 
 
-    }
+
+}
 

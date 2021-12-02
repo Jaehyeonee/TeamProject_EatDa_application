@@ -21,11 +21,13 @@
         <activity android:name="eatda.TeamProject_EatDa_application.LoginActivity"/>
         <activity android:name="eatda.TeamProject_EatDa_application.MyRecipeMain"/>
         <activity android:name=".MyMenu_MainRecycleView"/>
-<<<<<<< HEAD
-
-=======
         <activity android:name=".MenuResult_Activity"/>
->>>>>>> main
+        <activity android:name=".SelectCategory"/>
+        <activity android:name=".Category3"/>
+        <activity android:name=".Category2"/>
+        <activity android:name=".Category1"/>
+
+
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />

@@ -68,14 +68,14 @@ public class Category1 extends AppCompatActivity {
             return 0;
         }
         Integer[] imageID = {R.drawable.mmimg1, R.drawable.mmimg2,
-                R.drawable.mmimg3, R.drawable.mmimg4, R.drawable.mmimg5};
+                R.drawable.mmimg3, R.drawable.mmimg4, R.drawable.mmimg5, R.drawable.mmimg6};
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView = new ImageView(context);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(400, 400));
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setPadding(5,5,10,10);
+            imageView.setPadding(5,5,5,0);
 
             imageView.setImageResource(imageID[position]);
 

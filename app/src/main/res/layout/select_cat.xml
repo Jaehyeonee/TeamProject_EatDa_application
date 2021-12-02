@@ -68,6 +68,7 @@
         android:textStyle="italic"
         android:textColor="#AEAEAE"/>
 
+
     <ImageButton
         android:id="@+id/imageButton1"
         android:paddingTop="20dp"
@@ -107,6 +108,7 @@
         </TableRow>
 
     </TableLayout>
+
 
     <LinearLayout
         android:layout_gravity="bottom"

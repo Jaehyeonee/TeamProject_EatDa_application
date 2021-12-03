@@ -71,15 +71,21 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     # 이미지 갤러리
-
-    <GridView
-        android:id="@+id/gv1"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:gravity="center"
-        android:numColumns="3">
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <GridView
+            android:id="@+id/gv"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:gravity="center"
+            android:numColumns="3">
 
-    </GridView>
+        </GridView>
+    </LinearLayout>
+
 
     // 홈버튼
     <LinearLayout

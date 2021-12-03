@@ -20,7 +20,7 @@ public class Category1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category1);
 
-        final GridView gv1 = (GridView) findViewById(R.id.gv1);
+        final GridView gv1 = (GridView) findViewById(R.id.gv);
         MyGridAdapter gridAdapter = new MyGridAdapter(this);
         gv1.setAdapter(gridAdapter);
 
@@ -68,7 +68,8 @@ public class Category1 extends AppCompatActivity {
             return 0;
         }
         Integer[] imageID = {R.drawable.mmimg1, R.drawable.mmimg2,
-                R.drawable.mmimg3, R.drawable.mmimg4, R.drawable.mmimg5, R.drawable.mmimg6};
+                R.drawable.mmimg3, R.drawable.mmimg4, R.drawable.mmimg5, R.drawable.mmimg6,
+                R.drawable.mmimg7, R.drawable.mmimg8, R.drawable.mmimg9};
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {

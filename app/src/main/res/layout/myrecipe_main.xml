@@ -278,14 +278,15 @@
         </LinearLayout>
     </ScrollView>
 
+    // 홈버튼
     <LinearLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <GridLayout
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
             android:id="@+id/btnGridLayout"
             android:layout_gravity="bottom"
@@ -295,6 +296,8 @@
             android:rowCount="1">
 
             <ImageButton
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
                 android:id="@+id/hbtn1"
                 android:background="@drawable/ripple_leftbtn"
                 android:layout_column="0"
@@ -305,6 +308,8 @@
                 android:src="@drawable/hbtn1"/>
 
             <ImageButton
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
                 android:background="@drawable/rippe_rightbtn"
                 android:id="@+id/hbtn2"
                 android:layout_column="1"

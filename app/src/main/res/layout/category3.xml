@@ -70,36 +70,31 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     # 이미지 갤러리
-    <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        android:layout_weight="1">
         <GridView
-            android:id="@+id/gv3"
+            android:id="@+id/gv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:columnWidth="100dp"
-            android:stretchMode="columnWidth"
-            android:paddingRight="10dp"
-            android:verticalSpacing="2dp"
-            android:horizontalSpacing="2dp"
-            android:numColumns="3"
+            android:layout_height="480dp"
             android:gravity="center"
-            />
+            android:numColumns="3">
 
-    </ScrollView>
+        </GridView>
+    </LinearLayout>
 
 
+    // 홈버튼
     <LinearLayout
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <GridLayout
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
             android:id="@+id/btnGridLayout"
             android:layout_gravity="bottom"
@@ -109,6 +104,8 @@
             android:rowCount="1">
 
             <ImageButton
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
                 android:id="@+id/hbtn1"
                 android:background="@drawable/ripple_leftbtn"
                 android:layout_column="0"
@@ -119,6 +116,8 @@
                 android:src="@drawable/hbtn1"/>
 
             <ImageButton
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
                 android:background="@drawable/rippe_rightbtn"
                 android:id="@+id/hbtn2"
                 android:layout_column="1"

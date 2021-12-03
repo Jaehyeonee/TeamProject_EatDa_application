@@ -2,6 +2,9 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="?android:colorControlHighlight">
 
+    <shape android:shape="rectangle"
+        android:color="#00ffffff"/>
+
     <item
         android:drawable="?android:windowBackground"/>
 </ripple>

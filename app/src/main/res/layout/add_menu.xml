@@ -56,6 +56,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -76,24 +77,28 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/border_round"
                 android:ems="10"
-                android:hint="   레시피 이름"
+                android:hint="   등록 할 레시피 이름"
                 android:inputType="textPersonName"
                 android:textColorHint="#AEAEAE" />
 
             #이미지 추가
             <ImageView
                 android:id="@+id/addImageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/addimages"
+                android:layout_width="250sp"
+                android:layout_height="250sp"
+                app:srcCompat="@drawable/picture_add_img"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center_horizontal|center_vertical"/>
 
 
-            <ImageButton
+            <Button
                 android:id="@+id/addButton"
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/imgaddbtn_ripple"
+                android:backgroundTint="#F9C711"
+                android:text="음식 사진 등록하기"
                 app:srcCompat="@drawable/addbtn1" />
 
             #checkbox

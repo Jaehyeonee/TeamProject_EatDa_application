@@ -10,11 +10,13 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class AddMenuActivity extends AppCompatActivity {
 
     private static final int FROM_CAMERA = 0;
     private static final int FROM_ALBUM = 1;
+    Button addimgbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class AddMenuActivity extends AppCompatActivity {
         //ImageView addImage = (ImageView) this.findViewById(R.id.addImageView);
         //ImageButton addButton = (ImageButton) this.findViewById(R.id.addButton);
 
+        //addimgbtn.setBackground(R.drawable.imgaddbtn_ripple);
         //addButton.setOnClickListener(this);
     }
 

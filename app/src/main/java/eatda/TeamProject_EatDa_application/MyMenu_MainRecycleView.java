@@ -136,15 +136,18 @@ public class MyMenu_MainRecycleView extends AppCompatActivity {
     /**
      * 삽입 설정
      */
+    //TODO: addMenu 액티비티에서 정보 받아와서 딕셔너리에 추가하기
     private void bindInsert() {
         findViewById(R.id.addMenubtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MyMenu_MainRecycleView.this, AddMenuActivity.class);
+                startActivity(intent);
                 // Item 추가
-                mItemList.add(new Dictionary_MyMenu(R.drawable.mmimg1, "김치찌개" + mItemList.size()));
+                //mItemList.add(new Dictionary_MyMenu(R.drawable.mmimg1, "김치찌개" + mItemList.size())); // 활용해서 업데이트
 
                 // List 반영
-                customAdapter_addMyMenu.notifyDataSetChanged();
+                //customAdapter_addMyMenu.notifyDataSetChanged(); //활용해서 업데이트 : addMenu 액티비티에서 정보 받아와서 딕셔너리에 추가하기
             }
         });
     }

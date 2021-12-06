@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -20,6 +21,7 @@ public class Category2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category2);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         final GridView gv2 = (GridView) findViewById(R.id.gv);
         Category2.MyGridAdapter gridAdapter = new Category2.MyGridAdapter(this);
         gv2.setAdapter(gridAdapter);

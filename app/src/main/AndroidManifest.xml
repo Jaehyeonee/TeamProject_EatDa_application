@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Eatda_TestingApp">
         <activity
             android:name="eatda.TeamProject_EatDa_application.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,8 +32,8 @@
 
     </application>
 
-    //<uses-permission android:name="android.permission.CAMERA" />
-    //<uses-feature android:name="android.hardware.camera2" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera2" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 

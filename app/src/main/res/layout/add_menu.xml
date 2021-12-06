@@ -96,10 +96,8 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/imgaddbtn_ripple"
                 android:backgroundTint="#F9C711"
-                android:text="음식 사진 등록하기"
-                app:srcCompat="@drawable/addbtn1" />
+                android:text="음식 사진 등록하기"/>
 
             #checkbox
 

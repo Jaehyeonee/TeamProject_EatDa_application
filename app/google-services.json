@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "529123118683",
+    "project_id": "eatda-3e125",
+    "storage_bucket": "eatda-3e125.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529123118683:android:e77a771d98b764f0fc397e",
+        "android_client_info": {
+          "package_name": "eatda.TeamProject_EatDa_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529123118683-4bmk2fpph8pbuq1br8knkc8u3c21a2eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eatda.TeamProject_EatDa_application",
+            "certificate_hash": "dc1c0cd6b9fb8113ebda6968f16dac205a177de1"
+          }
+        },
+        {
+          "client_id": "529123118683-hpfe67g9bov4lr7dpg3uuj3r5veholsu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAci7F9o7pGLTwsfOaQcPZgFj5uC_SzRVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529123118683-hpfe67g9bov4lr7dpg3uuj3r5veholsu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

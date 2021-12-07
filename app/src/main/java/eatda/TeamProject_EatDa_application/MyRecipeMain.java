@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-//TODO: 버튼 클릭시 이미지 변화, 다이얼로그 띄우기(둥근 모서리), 메뉴추가 버튼 activity 연동, 홈버튼 페이지 전환 연동
+//TODO: 필요없는 JAVA 코드 XML 참고용으로 냅둠.
 
 
 public class MyRecipeMain extends AppCompatActivity {

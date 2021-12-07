@@ -6,11 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
+    #뒤로가기 버튼
+    <ImageButton
+        android:id="@+id/gobackBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="5dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/add_btn_ripple"
+        android:src="@drawable/backbtn"/>
 
     #로고 글자
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logoTextLayout"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

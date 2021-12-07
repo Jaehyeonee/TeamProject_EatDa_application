@@ -47,6 +47,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     private int id_view;
     private String absoultePath;
     private Uri mImageCaptureUri;
+    ImageButton gobackbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,9 +56,19 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         checkSelfPermission();
 
+        gobackbtn=findViewById(R.id.gobackBtn);
+
         photo = (ImageView)this.findViewById(R.id.addImageView);
         Button addImagebtn = (Button) this.findViewById(R.id.addButton);
         addImagebtn.setOnClickListener(this);
+
+        gobackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backintent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
+                startActivity(backintent);
+            }
+        });
 
         /*photo.setOnClickListener(new View.OnClickListener() {
             @Override

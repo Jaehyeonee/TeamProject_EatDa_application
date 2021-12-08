@@ -57,6 +57,8 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     private String absoultePath;
     private Uri mImageCaptureUri;
 
+    ImageButton gobackbtn;
+
 
     // 파이어베이스 데이터베이스 연동 - 재현
     EditText menuName;
@@ -76,6 +78,8 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_menu);
         checkSelfPermission();
+        //뒤로 가기 버튼
+        gobackbtn=findViewById(R.id.gobackBtn);
 
         photo = (ImageView)this.findViewById(R.id.addImageView);
         Button addImagebtn = (Button) this.findViewById(R.id.addButton);
@@ -92,6 +96,17 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         });*/
 
         //재현
+        //뒤로 가기 버튼 구현
+        gobackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backintent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
+                startActivity(backintent);
+            }
+        });
+
+
+
         //다이얼로그 커스텀
         custom_dialog = new Dialog(AddMenuActivity.this);
         custom_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

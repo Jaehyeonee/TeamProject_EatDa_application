@@ -1,12 +1,17 @@
 package eatda.TeamProject_EatDa_application;
 
+import static java.util.Objects.requireNonNull;
+
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -14,7 +19,9 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -26,6 +33,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -34,6 +43,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class AddMenuActivity extends AppCompatActivity implements  View.OnClickListener{
 
@@ -46,6 +56,20 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     private int id_view;
     private String absoultePath;
     private Uri mImageCaptureUri;
+
+
+    // 파이어베이스 데이터베이스 연동 - 재현
+    EditText menuName;
+    EditText menuIngredient;
+    EditText menuOrder;
+    Button submitRecipebtn;
+    Dialog custom_dialog;
+    Button confirmbtn;  //등록된 레시피 확인하러가기 버튼
+    Button gopeedbtn;   //내 피드로 돌아가기 버튼
+
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,7 +90,68 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });*/
+
+        //재현
+        //다이얼로그 커스텀
+        custom_dialog = new Dialog(AddMenuActivity.this);
+        custom_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        custom_dialog.setContentView(R.layout.custom_dialog);
+
+        submitRecipebtn=findViewById(R.id.submit_recipe);
+        menuName=findViewById(R.id.menuName);
+        menuIngredient=findViewById(R.id.editText1);
+        menuOrder=findViewById(R.id.editText2);
+
+        submitRecipebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog1();
+                AddMenuData(menuName.getText().toString(), menuIngredient.getText().toString(), menuOrder.getText().toString());
+                Toast toast = Toast.makeText(AddMenuActivity.this, menuName.getText().toString()+ "레시피가\n등록되었습니다.", Toast.LENGTH_LONG);
+                toast.show();
+
+
+            }
+        });
+
     }
+    //다이얼로그 커스텀
+    public void showDialog1(){
+        custom_dialog.show();
+        confirmbtn = custom_dialog.findViewById(R.id.btnConfirm);
+        gopeedbtn = custom_dialog.findViewById(R.id.btnGopeed);
+
+        custom_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
+        //리스너 설정
+        confirmbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 등록된 레시피 창으로 가는 intent 연결
+                //dialog1.dismiss();
+            }
+        });
+
+        //피드로 돌아가기
+        gopeedbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
+                startActivity(intent);
+                //dialog1.dismiss();
+            }
+        });
+    }
+
+    //값을 파이어베이스 Realtime database로 넘기는 함수
+    public void AddMenuData(String name, String ingredient, String order){
+        AddMenuData addMenuData = new AddMenuData(name, ingredient, order);
+
+        databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
+    }
+
+
 
     //접근 권한 받기
     @Override

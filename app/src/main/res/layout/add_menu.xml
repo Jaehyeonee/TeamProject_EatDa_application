@@ -11,10 +11,21 @@
     tools:context=".MainActivity">
 
 
+    #뒤로가기 버튼
+    <ImageButton
+        android:id="@+id/gobackBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="5dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/add_btn_ripple"
+        android:src="@drawable/backbtn"/>
+
+
     #로고 글자
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logoTextLayout"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -75,9 +86,10 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
+                android:paddingLeft="30dp"
                 android:background="@drawable/border_round"
                 android:ems="10"
-                android:hint="   등록 할 레시피 이름"
+                android:hint="등록 할 레시피 이름"
                 android:inputType="textPersonName"
                 android:textColorHint="#AEAEAE" />
 
@@ -138,31 +150,69 @@
 
             </TableLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:text="+ 요리 재료"/>
+
             #요리재료작성
             <EditText
                 android:id="@+id/editText1"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
+                android:hint="재료를 입력해주세요!"
                 android:gravity="top"
                 android:background="@drawable/border_round"
-                android:inputType="textPersonName"
-                android:text="    * 재료 정보" />
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"/>
             #요리순서작성
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:text="+ 요리 순서"/>
             <EditText
                 android:id="@+id/editText2"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:ems="10"
+                android:scrollbars="vertical"
                 android:gravity="top"
                 android:background="@drawable/border_round"
-                android:inputType="textPersonName"
-                android:text="    * 요리 순서" />
+                android:inputType="textMultiLine"
+                android:scrollHorizontally="false"
+                android:hint="요리 순서를 입력해주세요!" />
+
+
+            //등록 버튼
+            <Button
+                android:id="@+id/submit_recipe"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F9C711"
+                android:text="레시피 등록하기"/>
 
         </LinearLayout>
     </ScrollView>

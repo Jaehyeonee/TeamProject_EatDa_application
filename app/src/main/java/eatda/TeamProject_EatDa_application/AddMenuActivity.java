@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -47,28 +46,16 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     private int id_view;
     private String absoultePath;
     private Uri mImageCaptureUri;
-    ImageButton gobackbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_menu);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         checkSelfPermission();
-
-        gobackbtn=findViewById(R.id.gobackBtn);
 
         photo = (ImageView)this.findViewById(R.id.addImageView);
         Button addImagebtn = (Button) this.findViewById(R.id.addButton);
         addImagebtn.setOnClickListener(this);
-
-        gobackbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent backintent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
-                startActivity(backintent);
-            }
-        });
 
         /*photo.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -48,6 +48,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.ArrayDeque;
 import java.util.Objects;
 
 public class AddMenuActivity extends AppCompatActivity implements  View.OnClickListener{
@@ -77,6 +78,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
+   // private DatabaseReference pushedPostRef = postsResf.push();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -182,6 +184,11 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             }
         });
 
+<<<<<<< Updated upstream
+=======
+        databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
+
+>>>>>>> Stashed changes
     }
 
 

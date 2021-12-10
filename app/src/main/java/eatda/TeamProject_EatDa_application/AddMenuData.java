@@ -4,6 +4,7 @@ public class AddMenuData {
     String addMenuName;        //등록할 메뉴 이름
     String addMenuIngredient;   //등록할 메뉴 재료
     String addMenuOrder;        //등록할 메뉴 요리순서
+    String addMenuImage;       //등록할 메뉴 이미지
 
 
     public AddMenuData(){}
@@ -28,7 +29,10 @@ public class AddMenuData {
         this.addMenuOrder = order;
     }
 
-    public AddMenuData(String name, String ingredient, String order ){
+    public String getAddMenuImage(){ return addMenuImage;}
+    public void setImage(String image){this.addMenuImage = image;}
+
+    public AddMenuData(String name, String ingredient, String order , String imageUri){
         this.addMenuName = name;
         this.addMenuIngredient = ingredient;
         this.addMenuOrder = order;

@@ -8,10 +8,12 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -32,7 +34,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.loader.content.CursorLoader;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -77,7 +82,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_menu);
-        checkSelfPermission();
         //뒤로 가기 버튼
         gobackbtn=findViewById(R.id.gobackBtn);
 
@@ -85,15 +89,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         Button addImagebtn = (Button) this.findViewById(R.id.addButton);
         addImagebtn.setOnClickListener(this);
 
-        /*photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, REQUEST_CODE);
-            }
-        });*/
+
 
         //재현
         //뒤로 가기 버튼 구현
@@ -121,7 +117,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             @Override
             public void onClick(View v) {
                 showDialog1();
-                AddMenuData(menuName.getText().toString(), menuIngredient.getText().toString(), menuOrder.getText().toString());
+                AddMenuData(menuName.getText().toString(), menuIngredient.getText().toString(), menuOrder.getText().toString(), mImageCaptureUri.toString());
                 Toast toast = Toast.makeText(AddMenuActivity.this, menuName.getText().toString()+ "레시피가\n등록되었습니다.", Toast.LENGTH_LONG);
                 toast.show();
 
@@ -159,11 +155,33 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         });
     }
 
-    //값을 파이어베이스 Realtime database로 넘기는 함수
-    public void AddMenuData(String name, String ingredient, String order){
-        AddMenuData addMenuData = new AddMenuData(name, ingredient, order);
 
-        databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
+
+
+
+
+    //값을 파이어베이스 Realtime database로 넘기는 함수
+    public void AddMenuData(String name, String ingredient, String order, String imageUri){
+
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(mImageCaptureUri.getLastPathSegment());
+        storageReference.putFile(mImageCaptureUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                String key = databaseReference.push().getKey();
+                String uploadImageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
+
+                AddMenuData addMenuData = new AddMenuData(name, ingredient, order, uploadImageUrl);
+
+                databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                e.getMessage();
+            }
+        });
+
     }
 
 
@@ -182,26 +200,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         }
     }
 
-    public void checkSelfPermission() {
-        String temp = "";
-        //파일 읽기 권한 확인
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            temp += Manifest.permission.READ_EXTERNAL_STORAGE + " ";
-        }
-
-        //파일 쓰기 권한 확인
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            temp += Manifest.permission.WRITE_EXTERNAL_STORAGE + " ";
-        }
-
-        if (TextUtils.isEmpty(temp) == false) {
-            // 권한 요청
-            ActivityCompat.requestPermissions(this, temp.trim().split(" "), 1);
-        } else {
-            // 모두 허용 상태
-            Toast.makeText(this, "권한을 모두 허용", Toast.LENGTH_SHORT).show();
-        }
-    }
     /**
 
      * 카메라에서 사진 촬영
@@ -248,6 +246,8 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             case FROM_ALBUM:{
                 mImageCaptureUri = data.getData();
                 Log.d("SmartWheel",mImageCaptureUri.getPath().toString());
+
+
             }
 
             case FROM_CAMERA:
@@ -353,10 +353,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
 
                     Uri.fromFile(copyFile)));
-
-
             out.flush();
-
             out.close();
 
         } catch (Exception e) {
@@ -366,25 +363,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         }
     }
 
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                try {
-                    InputStream in = getContentResolver().openInputStream(data.getData());
-
-                    Bitmap img = BitmapFactory.decodeStream(in);
-                    in.close();
-                    photo.setImageBitmap(img);
-                } catch (Exception e) {
-
-                }
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
 
 
 }

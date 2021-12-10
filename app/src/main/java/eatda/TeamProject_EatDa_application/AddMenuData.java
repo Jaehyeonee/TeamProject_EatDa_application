@@ -5,11 +5,7 @@ public class AddMenuData {
     String addMenuName;        //등록할 메뉴 이름
     String addMenuIngredient;   //등록할 메뉴 재료
     String addMenuOrder;        //등록할 메뉴 요리순서
-<<<<<<< Updated upstream
     String addMenuImage;       //등록할 메뉴 이미지
-=======
-    //String postId = pushedPostRef.getPath();
->>>>>>> Stashed changes
 
 
     public AddMenuData(){}
@@ -41,6 +37,7 @@ public class AddMenuData {
         this.addMenuName = name;
         this.addMenuIngredient = ingredient;
         this.addMenuOrder = order;
+        this.addMenuImage = imageUri;
 
     }
 

@@ -53,6 +53,7 @@ import java.util.Objects;
 
 public class AddMenuActivity extends AppCompatActivity implements  View.OnClickListener{
 
+
     private static final int FROM_CAMERA = 0;
     private static final int FROM_ALBUM = 1;
     private static final int CROP_FROM_iMAGE = 2;
@@ -78,7 +79,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
-   // private DatabaseReference pushedPostRef = postsResf.push();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,7 +92,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         addImagebtn.setOnClickListener(this);
 
 
-
         //재현
         //뒤로 가기 버튼 구현
         gobackbtn.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +101,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
                 startActivity(backintent);
             }
         });
-
-
 
         //다이얼로그 커스텀
         custom_dialog = new Dialog(AddMenuActivity.this);
@@ -156,12 +153,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             }
         });
     }
-
-
-
-
-
-
     //값을 파이어베이스 Realtime database로 넘기는 함수
     public void AddMenuData(String name, String ingredient, String order, String imageUri){
 
@@ -172,7 +163,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
                 String key = databaseReference.push().getKey();
                 String uploadImageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
 
-                AddMenuData addMenuData = new AddMenuData(name, ingredient, order, uploadImageUrl);
+                AddMenuData addMenuData = new AddMenuData(name, ingredient, order, imageUri);
 
                 databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
 
@@ -184,14 +175,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             }
         });
 
-<<<<<<< Updated upstream
-=======
-        databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
-
->>>>>>> Stashed changes
     }
-
-
 
     //접근 권한 받기
     @Override
@@ -232,7 +216,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
      * 앨범에서 이미지 가져오기
 
      */
-
     public void doTakeAlbumAction() // 앨범에서 이미지 가져오기
 
     {
@@ -296,7 +279,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         }
 
     }
-
     @Override
     public void onClick(View view) {
         id_view = view.getId();
@@ -373,3 +355,4 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
 
 
 }
+

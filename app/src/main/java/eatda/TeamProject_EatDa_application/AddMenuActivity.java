@@ -38,8 +38,11 @@ import androidx.loader.content.CursorLoader;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -63,6 +66,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     private int id_view;
     private String absoultePath;
     private Uri mImageCaptureUri;
+    private int flag =0 ;
 
     ImageButton gobackbtn;
 
@@ -101,7 +105,6 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
                 startActivity(backintent);
             }
         });
-
         //다이얼로그 커스텀
         custom_dialog = new Dialog(AddMenuActivity.this);
         custom_dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -134,25 +137,17 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         custom_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
 
-        //리스너 설정
-        confirmbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 등록된 레시피 창으로 가는 intent 연결
-                //dialog1.dismiss();
-            }
-        });
-
         //피드로 돌아가기
         gopeedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
                 startActivity(intent);
-                //dialog1.dismiss();
+
             }
         });
     }
+
     //값을 파이어베이스 Realtime database로 넘기는 함수
     public void AddMenuData(String name, String ingredient, String order, String imageUri){
 
@@ -160,12 +155,24 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         storageReference.putFile(mImageCaptureUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                String key = databaseReference.push().getKey();
-                String uploadImageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
 
                 AddMenuData addMenuData = new AddMenuData(name, ingredient, order, imageUri);
+                databaseReference.child("Resister My Recipe").child(name).push().setValue(addMenuData);
 
-                databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
+                //confirmbtn = custom_dialog.findViewById(R.id.btnConfirm);
+                confirmbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(getBaseContext(), AddMenu_result_Activity.class);
+                        intent.putExtra("addMenuName", addMenuData.getMenuName());
+                        intent.putExtra("addMenuIngredient", addMenuData.getIngredient());
+                        intent.putExtra("addMenuOrder", addMenuData.getOrder());
+                        startActivity(intent);
+
+                    }
+                });
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -176,6 +183,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         });
 
     }
+
 
     //접근 권한 받기
     @Override
@@ -195,7 +203,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
 
      * 카메라에서 사진 촬영
 
-     */
+     **/
 
     public void doTakePhotoAction() // 카메라 촬영 후 이미지 가져오기
 

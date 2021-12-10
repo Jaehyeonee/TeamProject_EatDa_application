@@ -4,7 +4,6 @@ public class Dictionary_MyMenu {
 
     private String strTitle;
     private int imageResId;
-    private int a_ResId;
 
 
     public Dictionary_MyMenu(int a_resId, String a_strTittle){

@@ -27,6 +27,7 @@
         <activity android:name=".Category2"/>
         <activity android:name=".Category1"/>
         <activity android:name=".AddMenuActivity"/>
+        <activity android:name=".AddMenu_result_Activity"/>
 
 
     </application>

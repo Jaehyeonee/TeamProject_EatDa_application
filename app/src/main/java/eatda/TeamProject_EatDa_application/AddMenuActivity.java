@@ -35,6 +35,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.loader.content.CursorLoader;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,6 +54,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class AddMenuActivity extends AppCompatActivity implements  View.OnClickListener{
@@ -65,13 +68,14 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     private ImageView photo;
     private int id_view;
     private String absoultePath;
-    private Uri mImageCaptureUri;
+
     private int flag =0 ;
 
     ImageButton gobackbtn;
 
 
     // 파이어베이스 데이터베이스 연동 - 재현
+    private Uri mImageCaptureUri;
     EditText menuName;
     EditText menuIngredient;
     EditText menuOrder;
@@ -81,8 +85,13 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     Button gopeedbtn;   //내 피드로 돌아가기 버튼
 
 
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference = database.getReference();
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = firebaseDatabase.getReference();
+    private ArrayList<AddMenuData> addMenuDataList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    //private RecyclerView.Adapter adapter;
+    //private RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -101,7 +110,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         gobackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backintent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
+                Intent backintent = new Intent(AddMenuActivity.this, UploadActivity.class);
                 startActivity(backintent);
             }
         });
@@ -141,7 +150,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
         gopeedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddMenuActivity.this, MyMenu_MainRecycleView.class);
+                Intent intent = new Intent(AddMenuActivity.this, UploadActivity.class);
                 startActivity(intent);
 
             }
@@ -151,13 +160,18 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
     //값을 파이어베이스 Realtime database로 넘기는 함수
     public void AddMenuData(String name, String ingredient, String order, String imageUri){
 
+        AddMenuData addMenuData = new AddMenuData(name, ingredient, order, imageUri);
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(mImageCaptureUri.getLastPathSegment());
+
+
         storageReference.putFile(mImageCaptureUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                AddMenuData addMenuData = new AddMenuData(name, ingredient, order, imageUri);
-                databaseReference.child("Resister My Recipe").child(name).push().setValue(addMenuData);
+               // AddMenuData addMenuData = new AddMenuData(name, ingredient, order, imageUri);
+                //int i = addMenuDataList.size();
+                databaseReference.child("Resister My Recipe").push().setValue(addMenuData);
+
 
                 //confirmbtn = custom_dialog.findViewById(R.id.btnConfirm);
                 confirmbtn.setOnClickListener(new View.OnClickListener() {
@@ -168,13 +182,15 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
                         intent.putExtra("addMenuName", addMenuData.getMenuName());
                         intent.putExtra("addMenuIngredient", addMenuData.getIngredient());
                         intent.putExtra("addMenuOrder", addMenuData.getOrder());
+                        intent.putExtra("addMenuImage",addMenuData.getAddMenuImage() );
                         startActivity(intent);
 
                     }
+
                 });
-
-
             }
+
+
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -182,7 +198,10 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             }
         });
 
+
     }
+
+
 
 
     //접근 권한 받기

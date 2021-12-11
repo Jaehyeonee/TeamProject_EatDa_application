@@ -142,14 +142,13 @@ public class Category2 extends AppCompatActivity {
 
             custom_dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-            //foodphoto = custom_dialog2.findViewById(R.id.foodphoto);
-            //foodphoto.setImageResource(getView());
+
 
             showrecipebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //Intent intent = new Intent(Category1.this, );
-                    //startActivity(intent);
+                    Intent intent = new Intent(Category2.this, ShowCatRecipe.class );
+                    startActivity(intent);
                 }
             });
             gobackbtn.setOnClickListener(new View.OnClickListener() {

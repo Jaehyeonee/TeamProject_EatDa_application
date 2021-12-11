@@ -133,9 +133,11 @@ public class Category1 extends AppCompatActivity {
             custom_dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
             custom_dialog2.setContentView(R.layout.custom_dialog2);
 
+            Intent intent = new Intent(Category1.this, ShowCatRecipe.class);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    intent.putExtra("index",pos);
                     showDialog1();
                 }
             });
@@ -148,10 +150,10 @@ public class Category1 extends AppCompatActivity {
 
             custom_dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
+            Intent intent = new Intent(Category1.this, ShowCatRecipe.class);
             showrecipebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Category1.this, ShowCatRecipe.class );
                     startActivity(intent);
                 }
             });

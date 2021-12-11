@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setId(edit_id.getText().toString());
 
-                Intent intent = new Intent(LoginActivity.this, UploadActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(LoginActivity.this, UploadActivity.class);
+                //startActivity(intent);
 
             }
         });

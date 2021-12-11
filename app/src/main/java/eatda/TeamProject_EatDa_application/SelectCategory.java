@@ -47,10 +47,6 @@ public class SelectCategory extends AppCompatActivity {
         );
 
 
-
-
-
-
         ImageButton cat1 = (ImageButton) findViewById(R.id.imageButton1);
         ImageButton cat2 = (ImageButton) findViewById(R.id.imageButton2);
         ImageButton cat3 = (ImageButton) findViewById(R.id.imageButton3);
@@ -85,8 +81,8 @@ public class SelectCategory extends AppCompatActivity {
         hbtn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelectCategory.this, UploadActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(SelectCategory.this, UploadActivity.class);
+                //startActivity(intent);
             }
         });
 

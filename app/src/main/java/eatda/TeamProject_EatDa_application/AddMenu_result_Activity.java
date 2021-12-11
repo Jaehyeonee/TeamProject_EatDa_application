@@ -62,8 +62,8 @@ public class AddMenu_result_Activity extends AppCompatActivity {
         gobackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backintent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
-                startActivity(backintent);
+                //Intent backintent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
+                //startActivity(backintent);
             }
         });
 

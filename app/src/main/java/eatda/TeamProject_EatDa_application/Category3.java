@@ -82,8 +82,8 @@ public class Category3 extends AppCompatActivity {
         hbtn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Category3.this, UploadActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(Category3.this, UploadActivity.class);
+                //startActivity(intent);
             }
         });
     }
@@ -125,9 +125,11 @@ public class Category3 extends AppCompatActivity {
             custom_dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
             custom_dialog2.setContentView(R.layout.custom_dialog2);
 
+            Intent intent = new Intent(Category3.this, ShowCatRecipe3.class);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    intent.putExtra("index",pos);
                     showDialog1();
                 }
             });
@@ -145,7 +147,7 @@ public class Category3 extends AppCompatActivity {
             showrecipebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Category3.this, ShowCatRecipe.class );
+                    Intent intent = new Intent(Category3.this, ShowCatRecipe3.class );
                     startActivity(intent);
                 }
             });

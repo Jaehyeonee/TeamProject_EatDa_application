@@ -157,6 +157,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 AddMenuData addMenuData = new AddMenuData(name, ingredient, order, imageUri);
+
                 databaseReference.child("Resister My Recipe").child(name).push().setValue(addMenuData);
 
                 //confirmbtn = custom_dialog.findViewById(R.id.btnConfirm);
@@ -172,6 +173,7 @@ public class AddMenuActivity extends AppCompatActivity implements  View.OnClickL
 
                     }
                 });
+
 
 
             }

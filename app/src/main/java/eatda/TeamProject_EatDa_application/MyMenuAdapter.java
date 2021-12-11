@@ -1,13 +1,19 @@
 package eatda.TeamProject_EatDa_application;
 
+import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter_ViewHolder> {
@@ -43,14 +49,6 @@ public class MyMenuAdapter extends RecyclerView.Adapter<MyMenuAdapter_ViewHolder
     public void onBindViewHolder(@NonNull MyMenuAdapter_ViewHolder a_viewHolder, int a_position) {
         final Dictionary_MyMenu item= mItemList.get(a_position);
 
-        final int color;
-        if (a_viewHolder.getAdapterPosition() == mCheckedPosition) {
-            color = ContextCompat.getColor(a_viewHolder.itemView.getContext(), android.R.color.transparent);
-        } else {
-            color = ContextCompat.getColor(a_viewHolder.itemView.getContext(), android.R.color.transparent);
-
-        }
-        a_viewHolder.itemView.setBackgroundColor(color);
 
         a_viewHolder.menu_item_img.setImageResource(item.getImageResId());
         a_viewHolder.menu_item_title.setText(item.getTitle());

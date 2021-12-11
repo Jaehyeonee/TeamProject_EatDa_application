@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 setId(edit_id.getText().toString());
 
-                Intent intent = new Intent(LoginActivity.this, MyMenu_MainRecycleView.class);
+                Intent intent = new Intent(LoginActivity.this, UploadActivity.class);
                 startActivity(intent);
 
             }

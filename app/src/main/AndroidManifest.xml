@@ -20,7 +20,6 @@
         </activity>
         <activity android:name="eatda.TeamProject_EatDa_application.LoginActivity"/>
         <activity android:name="eatda.TeamProject_EatDa_application.MyRecipeMain"/>
-        <activity android:name=".MyMenu_MainRecycleView"/>
         <activity android:name=".MenuResult_Activity"/>
         <activity android:name=".SelectCategory"/>
         <activity android:name=".Category3"/>
@@ -28,7 +27,11 @@
         <activity android:name=".Category1"/>
         <activity android:name=".AddMenuActivity"/>
         <activity android:name=".AddMenu_result_Activity"/>
+<<<<<<< HEAD
+        <activity android:name=".UploadActivity"/>
+=======
         <activity android:name=".ShowCatRecipe"/>
+>>>>>>> main
 
 
     </application>

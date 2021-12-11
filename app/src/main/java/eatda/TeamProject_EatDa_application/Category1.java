@@ -86,7 +86,7 @@ public class Category1 extends AppCompatActivity {
         hbtn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Category1.this, MyMenu_MainRecycleView.class);
+                Intent intent = new Intent(Category1.this, UploadActivity.class);
                 startActivity(intent);
             }
         });

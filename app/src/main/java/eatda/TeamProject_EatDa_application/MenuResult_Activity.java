@@ -48,7 +48,7 @@ public class MenuResult_Activity extends AppCompatActivity {
         gobackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backintent = new Intent(MenuResult_Activity.this, MyMenu_MainRecycleView.class);
+                Intent backintent = new Intent(MenuResult_Activity.this, UploadActivity.class);
                 startActivity(backintent);
             }
         });

@@ -1,21 +1,44 @@
 package eatda.TeamProject_EatDa_application;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Category1 extends AppCompatActivity {
+
+    Dialog custom_dialog2;
+    Button showrecipebtn;
+    Button gobackbtn;
+    //ImageView foodphoto;
+
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +48,27 @@ public class Category1 extends AppCompatActivity {
         final GridView gv1 = (GridView) findViewById(R.id.gv);
         MyGridAdapter gridAdapter = new MyGridAdapter(this);
         gv1.setAdapter(gridAdapter);
+
+        //닉네임 설정하기
+        TextView mynickname = (TextView)findViewById(R.id.myNickname);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("id");
+        databaseReference.child("MyNickname").addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        MyNickname myNickname = snapshot.getValue(MyNickname.class);
+                        mynickname.setText(myNickname.toString());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                }
+        );
+
+
 
 
         //홈버튼
@@ -46,6 +90,7 @@ public class Category1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     public class MyGridAdapter extends BaseAdapter {
@@ -83,20 +128,42 @@ public class Category1 extends AppCompatActivity {
             imageView.setImageResource(imageID[position]);
 
             final int pos = position;
+
+            custom_dialog2 = new Dialog(Category1.this);
+            custom_dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            custom_dialog2.setContentView(R.layout.custom_dialog2);
+
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    View dialogView = (View)View.inflate(Category1.this, R.layout.dialog, null);
-                    AlertDialog.Builder dlg = new AlertDialog.Builder(Category1.this);
-                    ImageView ivPoster = (ImageView)dialogView.findViewById(R.id.ivPoster);
-                    ivPoster.setImageResource(imageID[pos]);
-                    dlg.setView(dialogView);
-                    dlg.setNegativeButton("닫기", null);
-                    dlg.show();
+                    showDialog1();
                 }
             });
-
             return imageView;
+        }
+        public void showDialog1(){
+            custom_dialog2.show();
+            showrecipebtn = custom_dialog2.findViewById(R.id.btnshowrecipe);
+            gobackbtn = custom_dialog2.findViewById(R.id.btngoback);
+
+            custom_dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+            //foodphoto = custom_dialog2.findViewById(R.id.foodphoto);
+            //foodphoto.setImageResource(getView());
+
+            showrecipebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Intent intent = new Intent(Category1.this, );
+                    //startActivity(intent);
+                }
+            });
+            gobackbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    custom_dialog2.dismiss();
+                }
+            });
         }
 
 

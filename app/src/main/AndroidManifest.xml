@@ -27,7 +27,11 @@
         <activity android:name=".Category1"/>
         <activity android:name=".AddMenuActivity"/>
         <activity android:name=".AddMenu_result_Activity"/>
+<<<<<<< HEAD
         <activity android:name=".UploadActivity"/>
+=======
+        <activity android:name=".ShowCatRecipe"/>
+>>>>>>> main
 
 
     </application>

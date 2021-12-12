@@ -27,7 +27,10 @@
         <activity android:name=".AddMenuActivity"/>
         <activity android:name=".AddMenu_result_Activity"/>
         <activity android:name=".UploadActivity"/>
+<<<<<<< Updated upstream
         <activity android:name=".ShowCatRecipe2"/>
+=======
+>>>>>>> Stashed changes
 
 
     </application>

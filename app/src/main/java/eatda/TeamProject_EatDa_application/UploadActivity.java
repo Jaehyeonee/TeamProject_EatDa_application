@@ -3,6 +3,7 @@ package eatda.TeamProject_EatDa_application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,8 +32,8 @@ public class UploadActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference =firebaseDatabase.getReference();
     private ImageButton addMenubtn;
+    private List<MyNickname>nicknameList=new ArrayList<>();
     private List<String> uidList = new ArrayList<>();
-    private List<MyNickname> nicknameList = new ArrayList<>();
     ImageButton hbtn_l;
     ImageButton hbtn_r;
     TextView nick_tv;
@@ -43,15 +44,34 @@ public class UploadActivity extends AppCompatActivity {
         setContentView(R.layout.recycle_activity);
         recyclerView = findViewById(R.id.recycler_view);
         addMenubtn = findViewById(R.id.addMenubtn);
-        nick_tv=findViewById(R.id.nickname);
+        nick_tv=findViewById(R.id.nickname_view);
+
+
+        //Intent intent = getIntent();
+        //String result = getIntent().getStringExtra("id");
+        //nick_tv.setText(result);
+
+        firebaseDatabase.getReference("My NickName").child("id").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+               MyNickname myNickname = snapshot.getValue(MyNickname.class);
+               String nick = myNickname.getId();
+               nick_tv.setText(nick);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
         hbtn_r = (ImageButton) findViewById(R.id.hbtn2);
 
-        //닉네임 설정
-        Intent intent4 = new Intent(this.getIntent());
-        String nickName =  intent4.getStringExtra("id");
-        nick_tv.setText(nickName);
+
+
 
         hbtn_l.setOnClickListener(new View.OnClickListener() {
             @Override

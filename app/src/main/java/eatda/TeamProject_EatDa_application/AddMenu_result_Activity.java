@@ -20,6 +20,7 @@ public class AddMenu_result_Activity extends AppCompatActivity {
     TextView recipeTitle_tv;
     TextView recipeOrder_tv;
     TextView recipeIngredient_tv;
+    ImageButton hbtn_l, hbtn_r;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class AddMenu_result_Activity extends AppCompatActivity {
         recipeTitle_tv=findViewById(R.id.menu_titleTextview);
         recipeIngredient_tv=findViewById(R.id.ingredientTextView);
         recipeOrder_tv=findViewById(R.id.orderTextView);
+        hbtn_l=findViewById(R.id.hbtn1);
+        hbtn_r=findViewById(R.id.hbtn2);
 
         String addMenuName ="";
         String addMenuIngredient="";
@@ -64,6 +67,24 @@ public class AddMenu_result_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent backintent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
                 startActivity(backintent);
+<<<<<<< Updated upstream
+=======
+            }
+        });
+
+        hbtn_l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddMenu_result_Activity.this, SelectCategory.class);
+                startActivity(intent);
+            }
+        });
+        hbtn_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
+                startActivity(intent);
+>>>>>>> Stashed changes
             }
         });
 

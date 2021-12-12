@@ -2,6 +2,7 @@ package eatda.TeamProject_EatDa_application;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user_id = edit_id.getEditableText().toString();
+                MyNickname(edit_id.getText().toString());
 
                 MyNickname(edit_id.getText().toString());
 
@@ -55,9 +57,14 @@ public class LoginActivity extends AppCompatActivity {
 
     public void MyNickname(String id){
         MyNickname myNickname = new MyNickname(id);
+<<<<<<< Updated upstream
         databaseReference.child("My NickName").child(id).setValue(myNickname);
         Intent sendIdintent = new Intent(getBaseContext(), UploadActivity.class);
         sendIdintent.putExtra("id", myNickname.getId());
         startActivity(sendIdintent);
+=======
+        databaseReference.child("My NickName").child("id").push().setValue(myNickname);
+        Log.d("nickname_id", myNickname.getId());
+>>>>>>> Stashed changes
     }
 }

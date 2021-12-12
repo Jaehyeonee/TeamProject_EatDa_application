@@ -67,8 +67,6 @@ public class AddMenu_result_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent backintent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
                 startActivity(backintent);
-<<<<<<< Updated upstream
-=======
             }
         });
 
@@ -84,7 +82,6 @@ public class AddMenu_result_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
                 startActivity(intent);
->>>>>>> Stashed changes
             }
         });
 

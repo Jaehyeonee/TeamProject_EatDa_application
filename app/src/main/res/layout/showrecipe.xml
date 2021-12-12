@@ -49,7 +49,6 @@
                 android:id="@+id/addedMyImageView"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
-                app:srcCompat="@drawable/picture_add_img"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center_horizontal|center_vertical"/>
 

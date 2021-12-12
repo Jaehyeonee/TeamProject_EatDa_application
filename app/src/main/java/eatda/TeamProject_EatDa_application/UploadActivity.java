@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-//재현
+
 public class UploadActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<AddMenuData> addMenuDataList = new ArrayList<>();

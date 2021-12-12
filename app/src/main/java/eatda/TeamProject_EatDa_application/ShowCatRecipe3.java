@@ -13,12 +13,11 @@ public class ShowCatRecipe3 extends AppCompatActivity {
         setContentView(R.layout.menu_result);
 
         String index = getIntent().getStringExtra("index");
-        int int_index = Integer.parseInt(index);
+        //int int_index = Integer.parseInt(index);
 
         Integer[] imageID = {R.drawable.c3img1,R.drawable.c3img2,R.drawable.c3img3};
 
         ImageView showrecipe = (ImageView) findViewById(R.id.addedMyImageView);
-        showrecipe.setImageResource(imageID[int_index]);
-
+        //showrecipe.setImageResource(imageID[int_index]);
     }
 }

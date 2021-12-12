@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-//재현
+
 public class UploadAdapter extends RecyclerView.Adapter<UploadAdapter.ViewHolder> {
     private RecyclerView recyclerView;
     private List<AddMenuData> addMenuDataList = new ArrayList<>();

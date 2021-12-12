@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name="eatda.TeamProject_EatDa_application.LoginActivity"/>
-        <activity android:name="eatda.TeamProject_EatDa_application.MyRecipeMain"/>
         <activity android:name=".MenuResult_Activity"/>
         <activity android:name=".SelectCategory"/>
         <activity android:name=".Category3"/>
@@ -27,13 +26,12 @@
         <activity android:name=".Category1"/>
         <activity android:name=".AddMenuActivity"/>
         <activity android:name=".AddMenu_result_Activity"/>
-
-        <activity android:name=".ShowCatRecipe"/>
-
+        <activity android:name=".UploadActivity"/>
+        <activity android:name=".ShowCatRecipe2"/>
 
 
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera2" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

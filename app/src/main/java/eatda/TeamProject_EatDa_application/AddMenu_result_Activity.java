@@ -3,6 +3,7 @@ package eatda.TeamProject_EatDa_application;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,7 +25,6 @@ public class AddMenu_result_Activity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_result);
-
 
         recipeImage_iv=findViewById(R.id.addedMyImageView);  //메뉴 이미지 보여주기
         gobackbtn=findViewById(R.id.gobackBtn);
@@ -62,8 +62,8 @@ public class AddMenu_result_Activity extends AppCompatActivity {
         gobackbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent backintent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
-                //startActivity(backintent);
+                Intent backintent = new Intent(AddMenu_result_Activity.this, UploadActivity.class);
+                startActivity(backintent);
             }
         });
 

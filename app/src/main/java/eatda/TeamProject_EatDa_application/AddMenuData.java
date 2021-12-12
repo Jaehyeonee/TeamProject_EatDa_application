@@ -31,7 +31,7 @@ public class AddMenuData {
     }
 
     public String getAddMenuImage(){ return addMenuImage;}
-    public void setImage(String imageUri){this.addMenuImage = imageUri;}
+    public void setImage(String image){this.addMenuImage = image;}
 
     public AddMenuData(String name, String ingredient, String order , String imageUri){
         this.addMenuName = name;

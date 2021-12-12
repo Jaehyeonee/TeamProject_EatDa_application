@@ -35,16 +35,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String user_id = edit_id.getEditableText().toString();
 
+                MyNickname(edit_id.getText().toString());
+
                 if(user_id.length()==0){
                     //아이디 비밀번호 필수 입력사항
                     Toast toast = Toast.makeText(LoginActivity.this, "입력사항이 누락되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     return;
                 }
-                setId(edit_id.getText().toString());
 
-                //Intent intent = new Intent(LoginActivity.this, UploadActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this, UploadActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -52,8 +53,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void setId(String id) {
+    public void MyNickname(String id){
         MyNickname myNickname = new MyNickname(id);
-        databaseReference.child("MyNickname").child(id).setValue(myNickname);
+        databaseReference.child("My NickName").child(id).setValue(myNickname);
+        Intent sendIdintent = new Intent(getBaseContext(), UploadActivity.class);
+        sendIdintent.putExtra("id", myNickname.getId());
+        startActivity(sendIdintent);
     }
 }

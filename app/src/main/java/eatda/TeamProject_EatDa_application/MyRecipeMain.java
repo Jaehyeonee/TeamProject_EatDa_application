@@ -74,8 +74,8 @@ public class MyRecipeMain extends AppCompatActivity {
         hbtn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyRecipeMain.this, UploadActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(MyRecipeMain.this, UploadActivity.class);
+                //startActivity(intent);
             }
         });
     }

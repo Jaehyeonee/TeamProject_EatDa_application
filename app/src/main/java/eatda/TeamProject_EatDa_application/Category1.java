@@ -3,6 +3,7 @@ package eatda.TeamProject_EatDa_application;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -27,11 +28,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Category3 extends AppCompatActivity {
+public class Category1 extends AppCompatActivity {
 
     Dialog custom_dialog2;
     Button showrecipebtn;
     Button gobackbtn;
+    //ImageView foodphoto;
 
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
@@ -40,12 +42,12 @@ public class Category3 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.category3);
+        setContentView(R.layout.category1);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        final GridView gv3 = (GridView) findViewById(R.id.gv);
-        Category3.MyGridAdapter gridAdapter = new Category3.MyGridAdapter(this);
-        gv3.setAdapter(gridAdapter);
+        final GridView gv1 = (GridView) findViewById(R.id.gv);
+        MyGridAdapter gridAdapter = new MyGridAdapter(this);
+        gv1.setAdapter(gridAdapter);
 
         //닉네임 설정하기
         TextView mynickname = (TextView)findViewById(R.id.myNickname);
@@ -67,6 +69,8 @@ public class Category3 extends AppCompatActivity {
         );
 
 
+
+
         //홈버튼
         ImageButton hbtn_l = (ImageButton) findViewById(R.id.hbtn1);
         ImageButton hbtn_r = (ImageButton) findViewById(R.id.hbtn2);
@@ -74,7 +78,7 @@ public class Category3 extends AppCompatActivity {
         hbtn_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Category3.this, SelectCategory.class);
+                Intent intent = new Intent(Category1.this, SelectCategory.class);
                 startActivity(intent);
             }
         });
@@ -82,11 +86,13 @@ public class Category3 extends AppCompatActivity {
         hbtn_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(Category3.this, UploadActivity.class);
+                //Intent intent = new Intent(Category1.this, UploadActivity.class);
                 //startActivity(intent);
             }
         });
+
     }
+
     public class MyGridAdapter extends BaseAdapter {
         Context context;
 
@@ -108,7 +114,9 @@ public class Category3 extends AppCompatActivity {
         public long getItemId(int position) {
             return 0;
         }
-        Integer[] imageID = {R.drawable.c3img1,R.drawable.c3img2,R.drawable.c3img3};
+        Integer[] imageID = {R.drawable.mmimg1, R.drawable.mmimg2,
+                R.drawable.mmimg3, R.drawable.mmimg4, R.drawable.mmimg5, R.drawable.mmimg6,
+                R.drawable.mmimg7, R.drawable.mmimg8, R.drawable.mmimg9};
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -121,11 +129,11 @@ public class Category3 extends AppCompatActivity {
 
             final int pos = position;
 
-            custom_dialog2 = new Dialog(Category3.this);
+            custom_dialog2 = new Dialog(Category1.this);
             custom_dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
             custom_dialog2.setContentView(R.layout.custom_dialog2);
 
-            Intent intent = new Intent(Category3.this, ShowCatRecipe3.class);
+            Intent intent = new Intent(Category1.this, ShowCatRecipe.class);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -133,7 +141,6 @@ public class Category3 extends AppCompatActivity {
                     showDialog1();
                 }
             });
-
             return imageView;
         }
         public void showDialog1(){
@@ -143,11 +150,10 @@ public class Category3 extends AppCompatActivity {
 
             custom_dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-
+            Intent intent = new Intent(Category1.this, ShowCatRecipe.class);
             showrecipebtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(Category3.this, ShowCatRecipe3.class );
                     startActivity(intent);
                 }
             });
@@ -161,4 +167,5 @@ public class Category3 extends AppCompatActivity {
 
 
     }
+
 }
